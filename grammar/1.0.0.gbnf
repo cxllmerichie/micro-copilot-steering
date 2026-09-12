@@ -1,0 +1,10 @@
+root    ::= skip | pass | comment
+
+skip    ::= "[SKIP]"
+pass    ::= "[PASS]"
+
+comment ::= line ( "\n" line )?
+line    ::= marker " "? body
+
+marker  ::= "#" | "//" | "--" | "<!--"
+body    ::= [^\n]{1,116}
